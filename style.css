@@ -507,3 +507,69 @@ body.modal-open {
     padding: 0;
     border: none;
 }
+/* Estilos para a modal em modo de alto contraste */
+.modal-content.high-contrast-modal {
+    background-color: #2c2c2c; /* Fundo escuro para a modal */
+    border-color: #f0f0f0;
+    color: #e0e0e0;
+}
+
+.modal-content.high-contrast-modal .modal-header h3 {
+    color: #f0f0f0;
+}
+
+.modal-content.high-contrast-modal .close-button {
+    color: #e0e0e0;
+}
+.modal-content.high-contrast-modal .close-button:hover,
+.modal-content.high-contrast-modal .close-button:focus {
+    color: #fff;
+}
+
+.modal-content.high-contrast-modal .form-group label {
+    color: #e0e0e0;
+}
+
+.modal-content.high-contrast-modal input[type="text"],
+.modal-content.high-contrast-modal input[type="time"],
+.modal-content.high-contrast-modal select,
+.modal-content.high-contrast-modal textarea {
+    background-color: #444; /* Fundo escuro para inputs */
+    border-color: #666;
+    color: #f0f0f0;
+}
+
+.modal-content.high-contrast-modal input[type="text"]::placeholder,
+.modal-content.high-contrast-modal textarea::placeholder {
+    color: #aaa; /* Cor do placeholder em modo escuro */
+}
+
+.modal-content.high-contrast-modal input[type="text"]:focus,
+.modal-content.high-contrast-modal input[type="time"]:focus,
+.modal-content.high-contrast-modal select:focus,
+.modal-content.high-contrast-modal textarea:focus {
+    border-color: #a3daff; /* Cor de foco em modo escuro */
+    box-shadow: 0 0 0 3px rgba(163, 218, 255, 0.25);
+}
+
+.modal-content.high-contrast-modal .form-actions button.save-button {
+    background-color: #4CAF50; /* Verde mais vibrante para salvar */
+}
+.modal-content.high-contrast-modal .form-actions button.save-button:hover {
+    background-color: #45a049;
+}
+
+.modal-content.high-contrast-modal .form-actions button.cancel-button {
+    background-color: #f44336; /* Vermelho mais vibrante para cancelar */
+}
+.modal-content.high-contrast-modal .form-actions button.cancel-button:hover {
+    background-color: #da190b;
+}
+
+.modal-content.high-contrast-modal .modal-header {
+    border-bottom-color: #555;
+}
+
+.modal-content.high-contrast-modal .form-actions {
+    border-top-color: #555;
+}
