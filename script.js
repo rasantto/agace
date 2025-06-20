@@ -116,7 +116,13 @@ function openModal(item = null) {
     eventModal.classList.add('is-visible');
     eventModal.setAttribute('aria-hidden', 'false');
     document.body.classList.add('modal-open'); // Adiciona classe para desabilitar scroll do body
-
+// Verifica se o widget principal está no modo de alto contraste e aplica à modal
+    const widget = document.querySelector('.agenda-widget');
+    if (widget.classList.contains('high-contrast')) {
+        eventModal.querySelector('.modal-content').classList.add('high-contrast-modal');
+    } else {
+        eventModal.querySelector('.modal-content').classList.remove('high-contrast-modal');
+    }
     if (item) { // Modo de Edição
         document.getElementById('modalTitle').textContent = 'Editar Item';
         itemIdInput.value = item.id;
