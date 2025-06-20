@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Agenda Diária Acessível</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="agenda-widget" role="application" aria-label="Minha Agenda Diária">
+        <header class="agenda-header">
+            <button class="nav-button" aria-label="Dia Anterior" title="Dia Anterior">
+                <span aria-hidden="true">&lt;</span>
+            </button>
+            <h2 id="current-date" aria-live="polite"></h2>
+            <button class="nav-button" aria-label="Próximo Dia" title="Próximo Dia">
+                <span aria-hidden="true">&gt;</span>
+            </button>
+        </header>
+
+        <div class="agenda-content">
+            <ul class="task-list" role="list">
+                <li class="no-items" role="listitem" aria-live="polite">
+                    Nenhum evento ou tarefa agendada para hoje. Aproveite o seu dia!
+                </li>
+            </ul>
+        </div>
+
+        <footer class="agenda-footer">
+            <button class="add-button" aria-label="Adicionar novo evento ou tarefa">
+                + Adicionar
+            </button>
+            <button class="settings-button" aria-label="Abrir configurações de acessibilidade">
+                <span aria-hidden="true">⚙️</span> Configurações
+            </button>
+        </footer>
+    </div>
+    <div id="eventModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-modal="true" aria-hidden="true">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h3 id="modalTitle">Adicionar/Editar Item</h3>
+                <button class="close-button" aria-label="Fechar modal" title="Fechar">&times;</button>
+            </header>
+            <form id="eventForm">
+                <input type="hidden" id="itemId"> <input type="hidden" id="itemDate"> <div class="form-group">
+                    <label for="itemType">Tipo:</label>
+                    <select id="itemType" required aria-required="true">
+                        <option value="event">Evento</option>
+                        <option value="task">Tarefa</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemTitle">Título:</label>
+                    <input type="text" id="itemTitle" required aria-required="true" placeholder="Título do evento ou tarefa">
+                </div>
+
+                <div class="form-group" id="itemTimeGroup">
+                    <label for="itemTimeStart">Horário Início:</label>
+                    <input type="time" id="itemTimeStart">
+                    <label for="itemTimeEnd">Horário Fim:</label>
+                    <input type="time" id="itemTimeEnd">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="itemAllDay">
+                        <label for="itemAllDay">Dia todo</label>
+                    </div>
+                </div>
+
+                <div class="form-group" id="itemLocationGroup">
+                    <label for="itemLocation">Local:</label>
+                    <input type="text" id="itemLocation" placeholder="Local do evento">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemDescription">Descrição (opcional):</label>
+                    <textarea id="itemDescription" rows="3" placeholder="Detalhes"></textarea>
+                </div>
+
+                <div class="form-group task-only-field" id="itemCompletedGroup" style="display: none;">
+                    <input type="checkbox" id="itemCompleted">
+                    <label for="itemCompleted">Concluído</label>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="save-button">Salvar</button>
+                    <button type="button" class="cancel-button">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
